@@ -8,14 +8,14 @@
 $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
-    $.get("/products/" + id + ".json", function(description) {
-      alert(description)
+    $.get("/products/" + id + ".json", function(data) {
+      alert(data)
         // var product = data["product"];
         var inventoryText = "<strong>Available</strong>";
         // if(product["inventory"] === 0){
           inventoryText = "<strong>Sold Out</strong>";
         // }
-        var descriptionText = "<p>" + description + "</p><p>" + inventoryText + "</p>";
+        var descriptionText = "<p>" + data["description"] + "</p><p>" + inventoryText + "</p>";
         $("#product-" + id).html(descriptionText);
 
     });
